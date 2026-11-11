@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Premium Store</title>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- NAVBAR -->
+    <nav class="bg-gray-900 text-white px-10 py-5 flex justify-between items-center">
+
+        <h1 class="text-2xl font-bold">
+            Premium Store
+        </h1>
+
+        <div class="bg-white text-black px-5 py-2 rounded-lg font-semibold">
+            Cart: <span id="cart-count">0</span>
+        </div>
+
+    </nav>
+
+
+    <!-- PRODUCT CONTAINER -->
+    <div class="flex justify-center gap-8 flex-wrap px-5 py-16">
+
+
+        <!-- CARD 1 -->
+        <div class="bg-white w-72 p-4 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+
+            <img
+                src="https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?w=700&h=550&fit=crop"
+                alt="Vintage Sneakers"
+                class="w-full h-48 object-cover rounded-lg"
+            >
+
+            <h2 class="text-xl font-bold mt-4">
+                Vintage Sneakers
+            </h2>
+
+            <p class="text-gray-500 mt-2 mb-4">
+                $50
+            </p>
+
+            <button
+                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded-lg w-full mb-2 hover:bg-blue-700 transition"
+            >
+                Add to Cart
+            </button>
+
+            <button
+                class="status-button bg-green-600 text-white px-4 py-2 rounded-lg w-full hover:bg-green-700 transition"
+            >
+                Active
+            </button>
+
+        </div>
+
+
+        <!-- CARD 2 -->
+        <div class="bg-white w-72 p-4 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+
+            <img
+                src="https://images.unsplash.com/photo-1484704849700-f032a568e944?w=700&h=550&fit=crop"
+                alt="Premium Headphones"
+                class="w-full h-48 object-cover rounded-lg"
+            >
+
+            <h2 class="text-xl font-bold mt-4">
+                Premium Headphones
+            </h2>
+
+            <p class="text-gray-500 mt-2 mb-4">
+                $80
+            </p>
+
+            <button
+                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded-lg w-full mb-2 hover:bg-blue-700 transition"
+            >
+                Add to Cart
+            </button>
+
+            <button
+                class="status-button bg-green-600 text-white px-4 py-2 rounded-lg w-full hover:bg-green-700 transition"
+            >
+                Active
+            </button>
+
+        </div>
+
+
+        <!-- CARD 3 -->
+        <div class="bg-white w-72 p-4 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+
+            <img
+                src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=700&h=550&fit=crop"
+                alt="Minimalist Wristwatch"
+                class="w-full h-48 object-cover rounded-lg"
+            >
+
+            <h2 class="text-xl font-bold mt-4">
+                Minimalist Wristwatch
+            </h2>
+
+            <p class="text-gray-500 mt-2 mb-4">
+                $100
+            </p>
+
+            <button
+                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded-lg w-full mb-2 hover:bg-blue-700 transition"
+            >
+                Add to Cart
+            </button>
+
+            <button
+                class="status-button bg-green-600 text-white px-4 py-2 rounded-lg w-full hover:bg-green-700 transition"
+            >
+                Active
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // CART COUNTER
+        let cartCount = 0;  // IS MY STATE VARIABL 
+
+         
+
+
+        document.querySelectorAll(".add-to-cart").forEach(function (button) {
+
+
+             
+            button.addEventListener("click", function () {
+                cartCount++;
+                document.getElementById("cart-count").textContent = cartCount;
+            });
+        });
+
+        document.querySelectorAll(".status-button").forEach(function (button) {
+            button.addEventListener("click", function () {
+                if (button.textContent.trim() === "Active") {
+  
+                    button.textContent = "Pending";
+
+                    button.classList.remove("bg-green-600", "hover:bg-green-700");
+
+                    button.classList.add("bg-yellow-500", "hover:bg-yellow-600");
+
+                } else {
+
+                    button.textContent = "Active";
+
+                    button.classList.remove("bg-yellow-500", "hover:bg-yellow-600");
+
+                    button.classList.add("bg-green-600", "hover:bg-green-700");
+
+
+                    emma.addEventListener("click", function () {
+                        cartCount++;
+                        document.getElementById("cart-count").textContent = cartCount;
+                    });
+                    
+
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

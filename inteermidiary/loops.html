@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>JavaScript Loops and the DOM</title>
+</head>
+
+<body class="min-h-screen bg-slate-100 text-slate-900">
+    <header class="bg-slate-900 px-6 py-10 text-white">
+        <div class="mx-auto max-w-4xl">
+            <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-sky-300">Beginner JavaScript lesson</p>
+            <h1 class="text-3xl font-bold sm:text-4xl">Loops, Functions, and the DOM</h1>
+            <p class="mt-3 max-w-2xl text-slate-300">
+                Learn how JavaScript can repeat work, find HTML elements, and respond when someone clicks a button.
+            </p>
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-4xl space-y-8 px-5 py-8">
+        <section class="rounded-xl bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold">1. What is a loop?</h2>
+            <p class="mt-3 leading-7 text-slate-700">
+                A loop repeats a piece of code. Use one when you need to do the same kind of work for several values,
+                instead of writing the same instructions again and again.
+            </p>
+            <h3 class="mt-5 font-semibold">A regular <code>for</code> loop</h3>
+            <pre class="mt-2 overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100"><code>for (let number = 1; number &lt;= 3; number++) {
+    console.log(number);
+}</code></pre>
+            <p class="mt-3 leading-7 text-slate-700">
+                The loop starts <code>number</code> at 1, keeps going while it is less than or equal to 3, and adds 1
+                after each turn. The console shows 1, then 2, then 3.
+            </p>
+
+            <h3 class="mt-5 font-semibold"><code>forEach</code> for arrays</h3>
+            <pre class="mt-2 overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100"><code>const colors = ["blue", "green", "yellow"];
+
+colors.forEach(function (color) {
+    console.log(color);
+});</code></pre>
+            <p class="mt-3 leading-7 text-slate-700">
+                <code>forEach</code> runs the callback function once for each array item. On each turn, <code>color</code>
+                contains the current item. It is especially useful when you want to do something to every matching
+                element on a page.
+            </p>
+        </section>
+
+        <section class="rounded-xl bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold">2. What is the DOM?</h2>
+            <p class="mt-3 leading-7 text-slate-700">
+                DOM means <strong>Document Object Model</strong>. The browser turns the HTML page into objects that
+                JavaScript can find and change. For example, JavaScript can find an element by its ID, update its text,
+                or add a click listener to a button.
+            </p>
+            <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100"><code>const heading = document.querySelector("#page-title");
+heading.textContent = "The heading has changed";</code></pre>
+            <p class="mt-3 leading-7 text-slate-700">
+                <code>document</code> represents this page. <code>querySelector</code> finds the first element matching
+                a CSS selector. Here, <code>#page-title</code> means the element with <code>id="page-title"</code>.
+                <code>textContent</code> changes the text inside it.
+            </p>
+            <p class="mt-3 leading-7 text-slate-700">
+                To find several elements, use <code>document.querySelectorAll(".some-class")</code>. It returns a
+                collection of matching elements. Use <code>forEach</code> to work with each one.
+            </p>
+        </section>
+
+        <section class="rounded-xl bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold">3. What is a function?</h2>
+            <p class="mt-3 leading-7 text-slate-700">
+                A function is a named, reusable block of instructions. You can call it whenever you need that work
+                done. A function can also receive information (called a parameter).
+            </p>
+            <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100"><code>function greet(name) {
+    return "Hello, " + name;
+}
+
+const message = greet("Maya");</code></pre>
+            <p class="mt-3 leading-7 text-slate-700">
+                In this example, <code>name</code> is a parameter. Calling <code>greet("Maya")</code> passes the value
+                "Maya" into the function. <code>return</code> sends a result back to the caller.
+            </p>
+        </section>
+
+        <section class="rounded-xl bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold">4. Try it: render items and listen for clicks</h2>
+            <p class="mt-3 leading-7 text-slate-700">
+                The example below has an array of products. JavaScript uses <code>forEach</code> to create one card for
+                every product. It then finds every Add button and uses another <code>forEach</code> to attach a click
+                event listener.
+            </p>
+
+            <div class="mt-5 flex items-center justify-between rounded-lg bg-slate-100 p-4">
+                <h3 class="font-semibold">Demo products</h3>
+                <p class="font-semibold">Cart: <span id="cart-count" aria-live="polite">0</span></p>
+            </div>
+            <div id="product-list" class="mt-4 grid gap-4 sm:grid-cols-3"></div>
+            <p id="demo-message" class="mt-4 min-h-6 text-sm text-slate-600" aria-live="polite"></p>
+        </section>
+
+        <section class="rounded-xl bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold">5. Read the example JavaScript</h2>
+            <ol class="mt-4 list-decimal space-y-3 pl-5 leading-7 text-slate-700">
+                <li>
+                    <strong>The data:</strong> <code>products</code> is an array. Each object stores a product name
+                    and price.
+                </li>
+                <li>
+                    <strong>Find the container:</strong> <code>document.querySelector("#product-list")</code> finds
+                    the empty HTML element where the product cards belong.
+                </li>
+                <li>
+                    <strong>Build each card:</strong> <code>products.forEach(function (product) { ... })</code> runs
+                    once per product. The function parameter <code>product</code> is the current object.
+                </li>
+                <li>
+                    <strong>Put the cards on the page:</strong> <code>insertAdjacentHTML</code> adds each card's HTML
+                    inside the container.
+                </li>
+                <li>
+                    <strong>Find all Add buttons:</strong> <code>querySelectorAll(".add-to-cart")</code> returns every
+                    button with that class.
+                </li>
+                <li>
+                    <strong>Listen for clicks:</strong> The second <code>forEach</code> adds a
+                    <code>click</code> listener to each button. When clicked, its function increases
+                    <code>cartCount</code> and updates the cart text in the DOM.
+                </li>
+            </ol>
+            <p class="mt-5 rounded-lg bg-sky-50 p-4 leading-7 text-slate-700">
+                <strong>Remember:</strong> An event listener waits for an event, such as a click. A loop helps you
+                attach the same listener to many elements. The function inside <code>addEventListener</code> runs later,
+                when the click happens.
+            </p>
+        </section>
+
+        <section class="rounded-xl bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold">The complete internal JavaScript</h2>
+            <p class="mt-3 leading-7 text-slate-700">
+                This is the same JavaScript used by the demo. It is inside the HTML file's
+                <code>&lt;script&gt;</code> element, so no separate JavaScript file is needed.
+            </p>
+            <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100"><code>const products = [
+    { name: "Notebook", price: 5 },
+    { name: "Pencil set", price: 3 },
+    { name: "Backpack", price: 25 }
+];
+
+const productList = document.querySelector("#product-list");
+let cartCount = 0;
+
+products.forEach(function (product) {
+    productList.insertAdjacentHTML(
+        "beforeend",
+        `&lt;article class="rounded-lg border border-slate-200 p-4"&gt;
+            &lt;h3 class="font-bold"&gt;${product.name}&lt;/h3&gt;
+            &lt;p class="mt-1 text-slate-600"&gt;$${product.price}&lt;/p&gt;
+            &lt;button class="add-to-cart mt-3 rounded bg-blue-600 px-3 py-2
+                text-white hover:bg-blue-700"&gt;Add to Cart&lt;/button&gt;
+        &lt;/article&gt;`
+    );
+});
+
+document.querySelectorAll(".add-to-cart").forEach(function (button) {
+    button.addEventListener("click", function () {
+        cartCount++;
+        document.querySelector("#cart-count").textContent = cartCount;
+        document.querySelector("#demo-message").textContent =
+            "One item added to your cart.";
+    });
+});</code></pre>
+        </section>
+    </main>
+
+    <script>
+        const products = [
+            { name: "Notebook", price: 5 },
+            { name: "Pencil set", price: 3 },
+            { name: "Backpack", price: 25 }
+        ];
+
+        const productList = document.querySelector("#product-list");
+        let cartCount = 0;
+
+        products.forEach(function (product) {
+            productList.insertAdjacentHTML(
+                "beforeend",
+                `<article class="rounded-lg border border-slate-200 p-4">
+                    <h3 class="font-bold">${product.name}</h3>
+                    <p class="mt-1 text-slate-600">$${product.price}</p>
+                    <button class="add-to-cart mt-3 rounded bg-blue-600 px-3 py-2 text-white hover:bg-blue-700">
+                        Add to Cart
+                    </button>
+                </article>`
+            );
+        });
+
+        document.querySelectorAll(".add-to-cart").forEach(function (button) {
+            button.addEventListener("click", function () {
+                cartCount++;
+                document.querySelector("#cart-count").textContent = cartCount;
+                document.querySelector("#demo-message").textContent = "One item added to your cart.";
+            });
+        });
+    </script>
+</body>
+
+</html>

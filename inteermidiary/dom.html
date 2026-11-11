@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple DOM Examples</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body id="bg" class="bg-slate-900 text-white min-h-screen flex items-center justify-center p-4">
+
+  <div class="bg-slate-800 p-6 rounded-xl space-y-6 text-center max-w-xs w-full">
+
+    <!-- 1. Background Color via Arguments -->
+    <div>
+      <p class="text-sm text-slate-400 mb-2">Change Background</p>
+      <div class="flex justify-center gap-2">
+        <button onclick="setBg('bg-slate-900')" class="bg-slate-700 px-3 py-1 rounded">Dark</button>
+        <button onclick="setBg('bg-red-900')" class="bg-red-700 px-3 py-1 rounded">Red</button>
+        <button onclick="setBg('bg-blue-900')" class="bg-blue-700 px-3 py-1 rounded">Blue</button>
+      </div>
+    </div>
+
+    <!-- 2. Button Color via Argument -->
+    <div>
+      <p class="text-sm text-slate-400 mb-2">Change Button</p>
+      <button id="target-btn" onclick="setBtnColor('bg-emerald-500')" class="bg-purple-600 px-4 py-2 rounded">
+        Click to Turn Green
+      </button>
+    </div>
+
+    <!-- 3. Counter -->
+    <div>
+      <p class="text-sm text-slate-400 mb-1">Counter</p>
+      <h1 id="count" class="text-3xl font-bold mb-2">0</h1>
+      <button onclick="changeCount(-1)" class="bg-slate-700 px-3 py-1 rounded">-</button>
+      <button onclick="changeCount(1)" class="bg-slate-700 px-3 py-1 rounded">+</button>
+    </div>
+ 
+  </div>
+
+  <script>
+    // 1. Background function using class name argument
+    function setBg(colorClass) {
+      document.getElementById('bg').className = `${colorClass} text-white min-h-screen flex items-center justify-center p-4`;
+     }
+
+    // 2. Button color function using class name argument
+    function setBtnColor(colorClass) {
+      document.getElementById('target-btn').className = `${colorClass} px-4 py-2 rounded`;
+    }
+
+    // 3. Simple counter
+    let total = 0; // my state variable
+    function changeCount(step) {
+      total += step; // total = total + 2
+      ;
+      console.log('Total:', total);
+      document.getElementById('count').innerText = total;
+    }
+  </script>
+
+</body>
+</html>

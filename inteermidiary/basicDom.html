@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>JavaScript DOM Playground</title>
+</head>
+
+<body id="body" class="bg-gray-100 min-h-screen p-6">
+
+    <div class="max-w-4xl mx-auto">
+
+        <h1 class="text-3xl font-bold text-center mb-2">
+            JavaScript DOM Playground
+        </h1>
+
+        <p class="text-gray-500 text-center mb-10">
+            Practise basic JavaScript functions and DOM manipulation.
+        </p>
+
+
+        <!-- 1. CHANGE BACKGROUND -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">1. Change Background Color</h2>
+
+            <div class="flex flex-wrap gap-3">
+
+                <button onclick="changeBackground('red')"
+                    class="bg-red-500 text-white px-4 py-2 rounded-lg">
+                    Red
+                </button>
+
+                <button onclick="changeBackground('blue')"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                    Blue
+                </button>
+
+                <button onclick="changeBackground('green')"
+                    class="bg-green-500 text-white px-4 py-2 rounded-lg">
+                    Green
+                </button>
+
+                <button onclick="changeBackground('white')"
+                    class="bg-gray-200 px-4 py-2 rounded-lg">
+                    Reset
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- 2. CHANGE TEXT -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">2. Change Text</h2>
+
+            <p id="myText" class="text-gray-600 mb-4">
+                Hello, welcome to JavaScript DOM!
+            </p>
+
+            <div class="flex flex-wrap gap-3">
+
+                <button onclick="changeText()"
+                    class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+                    Change Text
+                </button>
+
+                <button onclick="resetText()"
+                    class="bg-gray-700 text-white px-4 py-2 rounded-lg">
+                    Reset Text
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- 3. CHANGE BUTTON COLOR -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">3. Change Button Color</h2>
+
+            <button id="colorButton"
+                onclick="changeButtonColor()"
+                class="bg-purple-600 text-white px-5 py-2 rounded-lg">
+                Click Me
+            </button>
+
+        </section>
+
+
+        <!-- 4. HIDE AND SHOW -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">4. Hide and Show Elements</h2>
+
+            <p id="secretText" class="bg-blue-100 p-4 rounded-lg mb-4">
+                You can hide me and bring me back!
+            </p>
+
+            <div class="flex gap-3 flex-wrap">
+
+                <button onclick="hideElement()"
+                    class="bg-red-600 text-white px-4 py-2 rounded-lg">
+                    Hide
+                </button>
+
+                <button onclick="showElement()"
+                    class="bg-green-600 text-white px-4 py-2 rounded-lg">
+                    Show
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- 5. TOGGLE ELEMENT -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">5. Toggle Visibility</h2>
+
+            <p id="toggleText" class="bg-yellow-100 p-4 rounded-lg mb-4">
+                Click the button to hide or show me.
+            </p>
+
+            <button onclick="toggleElement()"
+                class="bg-indigo-600 text-white px-4 py-2 rounded-lg">
+                Toggle Element
+            </button>
+
+        </section>
+
+
+        <!-- 6. CHANGE FONT SIZE -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">6. Change Font Size</h2>
+
+            <p id="fontText" class="text-lg mb-4">
+                You can increase or decrease my font size.
+            </p>
+
+            <div class="flex gap-3">
+
+                <button onclick="increaseFont()"
+                    class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+                    Increase +
+                </button>
+
+                <button onclick="decreaseFont()"
+                    class="bg-red-600 text-white px-4 py-2 rounded-lg">
+                    Decrease -
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- 7. COUNTER -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">7. Increase and Decrease Number</h2>
+
+            <h1 id="counter" class="text-4xl font-bold mb-4">0</h1>
+
+            <div class="flex gap-3">
+
+                <button onclick="increaseCounter()"
+                    class="bg-green-600 text-white px-5 py-2 rounded-lg">
+                    +
+                </button>
+
+                <button onclick="decreaseCounter()"
+                    class="bg-red-600 text-white px-5 py-2 rounded-lg">
+                    -
+                </button>
+
+                <button onclick="resetCounter()"
+                    class="bg-gray-700 text-white px-5 py-2 rounded-lg">
+                    Reset
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- 8. INPUT AND DISPLAY -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">8. Get Input From User</h2>
+
+            <input
+                id="username"
+                type="text"
+                placeholder="Enter your name"
+                class="border border-gray-300 p-3 rounded-lg w-full mb-4 outline-none focus:border-blue-500"
+            >
+
+            <button onclick="displayName()"
+                class="bg-blue-600 text-white px-5 py-2 rounded-lg">
+                Submit
+            </button>
+
+            <p id="displayName" class="mt-4 font-semibold text-green-600"></p>
+
+        </section>
+
+
+        <!-- 9. CHANGE BORDER -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">9. Change Border</h2>
+
+            <div id="borderBox"
+                class="border-2 border-gray-300 p-6 rounded-lg mb-4">
+                Change my border!
+            </div>
+
+            <button onclick="changeBorder()"
+                class="bg-purple-600 text-white px-4 py-2 rounded-lg">
+                Change Border
+            </button>
+
+        </section>
+
+
+        <!-- 10. DARK MODE -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">10. Toggle Dark Mode</h2>
+
+            <div id="darkBox"
+                class="bg-gray-100 text-black p-6 rounded-lg mb-4">
+                <p>This box can switch between light and dark mode.</p>
+            </div>
+
+            <button onclick="toggleDarkMode()"
+                class="bg-gray-900 text-white px-4 py-2 rounded-lg">
+                Toggle Dark Mode
+            </button>
+
+        </section>
+
+
+        <!-- 11. ADD ELEMENT -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">11. Add HTML Elements</h2>
+
+            <ul id="myList" class="list-disc pl-6 mb-4 space-y-2">
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+
+            <button onclick="addItem()"
+                class="bg-green-600 text-white px-4 py-2 rounded-lg">
+                Add Item
+            </button>
+
+        </section>
+
+
+        <!-- 12. REMOVE ELEMENT -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">12. Remove HTML Elements</h2>
+
+            <div id="removeBox"
+                class="bg-red-100 p-4 rounded-lg mb-4">
+                Remove this box by clicking the button.
+            </div>
+
+            <button onclick="removeElement()"
+                class="bg-red-600 text-white px-4 py-2 rounded-lg">
+                Remove Element
+            </button>
+
+            <button onclick="bringBackElement()"
+                class="bg-green-600 text-white px-4 py-2 rounded-lg">
+                Bring Back
+            </button>
+
+        </section>
+
+
+        <!-- 13. CHANGE IMAGE -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">13. Change Image</h2>
+
+            <img
+                id="myImage"
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600"
+                class="w-full max-w-sm h-52 object-cover rounded-lg mb-4"
+                alt="Nature"
+            >
+
+            <button onclick="changeImage()"
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+                Change Image
+            </button>
+
+        </section>
+
+
+        <!-- 14. CHANGE TEXT COLOR -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">14. Change Text Color</h2>
+
+            <p id="colorText" class="text-xl font-bold mb-4">
+                Change my text color!
+            </p>
+
+            <button onclick="changeTextColor()"
+                class="bg-purple-600 text-white px-4 py-2 rounded-lg">
+                Change Color
+            </button>
+
+        </section>
+
+
+        <!-- 15. CLEAR INPUT -->
+        <section class="bg-white p-6 rounded-xl shadow mb-6">
+
+            <h2 class="text-xl font-bold mb-4">15. Clear Input</h2>
+
+            <input
+                id="clearInput"
+                type="text"
+                placeholder="Type something..."
+                class="border p-3 rounded-lg w-full mb-4"
+            >
+
+            <button onclick="clearInput()"
+                class="bg-red-600 text-white px-4 py-2 rounded-lg">
+                Clear Input
+            </button>
+
+        </section>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+
+        // 1. CHANGE BACKGROUND
+        function changeBackground(color) {
+
+            document.body.style.backgroundColor = color;
+
+        }
+
+
+
+        // 2. CHANGE TEXT
+        function changeText() {
+
+            document.getElementById("myText").textContent =
+                "JavaScript has changed this text!";
+
+        }
+
+        function resetText() {
+
+            document.getElementById("myText").textContent =
+                "Hello, welcome to JavaScript DOM!";
+
+        }
+
+
+        // 3. CHANGE BUTTON COLOR
+        function changeButtonColor() {
+
+            document.getElementById("colorButton").style.backgroundColor =
+                "orange";
+
+        }
+
+
+        // 4. HIDE ELEMENT
+        function hideElement() {
+
+            document.getElementById("secretText").style.display = "none";
+
+        }
+
+        function showElement() {
+
+            document.getElementById("secretText").style.display = "block";
+
+        }
+
+
+        // 5. TOGGLE VISIBILITY
+        function toggleElement() {
+
+            document.getElementById("toggleText").classList.toggle("hidden");
+
+        }
+
+
+        // 6. CHANGE FONT SIZE
+        let fontSize = 18;
+
+        function increaseFont() {
+
+            fontSize += 2;
+
+            document.getElementById("fontText").style.fontSize =
+                fontSize + "px";
+
+        }
+
+        function decreaseFont() {
+
+            fontSize -= 2;
+
+            document.getElementById("fontText").style.fontSize =
+                fontSize + "px";
+
+        }
+
+
+        // 7. COUNTER
+        let count = 0;
+
+        function increaseCounter() {
+
+            count++;
+
+            document.getElementById("counter").textContent = count;
+
+        }
+
+        function decreaseCounter() {
+
+            count--;
+
+            document.getElementById("counter").textContent = count;
+
+        }
+
+        function resetCounter() {
+
+            count = 0;
+
+            document.getElementById("counter").textContent = count;
+
+        }
+
+
+        // 8. GET USER INPUT
+        function displayName() {
+
+            let name = document.getElementById("username").value;
+
+            document.getElementById("displayName").textContent =
+                "Hello " + name;
+
+        }
+
+
+        // 9. CHANGE BORDER
+        function changeBorder() {
+
+            document.getElementById("borderBox").style.border =
+                "4px solid blue";
+
+        }
+
+
+        // 10. DARK MODE
+        function toggleDarkMode() {
+
+            document.getElementById("darkBox").classList.toggle("bg-gray-100");
+
+            document.getElementById("darkBox").classList.toggle("bg-gray-900");
+
+            document.getElementById("darkBox").classList.toggle("text-black");
+
+            document.getElementById("darkBox").classList.toggle("text-white");
+
+        }
+
+
+        // 11. ADD ELEMENT
+        function addItem() {
+
+            let newItem = document.createElement("li");
+
+            newItem.textContent = "JavaScript";
+
+            document.getElementById("myList").appendChild(newItem);
+
+        }
+
+
+        // 12. REMOVE ELEMENT
+        let savedBox = null;
+
+        function removeElement() {
+
+            let box = document.getElementById("removeBox");
+
+            if (box) {
+
+                savedBox = box;
+
+                box.remove();
+
+            }
+
+        }
+
+        function bringBackElement() {
+
+            if (savedBox) {
+
+                document.querySelector("body > div > section:nth-of-type(12)")
+                    .appendChild(savedBox);
+
+                savedBox = null;
+
+            }
+
+        }
+
+
+        // 13. CHANGE IMAGE
+        let imageChanged = false;
+
+        function changeImage() {
+
+            let image = document.getElementById("myImage");
+
+            if (imageChanged === false) {
+
+                image.src =
+                    "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=600";
+
+                imageChanged = true;
+
+            } else {
+
+                image.src =
+                    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600";
+
+                imageChanged = false;
+
+            }
+
+        }
+
+
+        // 14. CHANGE TEXT COLOR
+        function changeTextColor() {
+
+            document.getElementById("colorText").style.color = "red";
+
+        }
+
+
+        // 15. CLEAR INPUT
+        function clearInput() {
+
+            document.getElementById("clearInput").value = "";
+
+        }
+
+    </script>
+
+</body>
+</html>
