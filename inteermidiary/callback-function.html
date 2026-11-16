@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Passing a Function as a Callback</title>
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-900">
+    <header class="bg-slate-900 px-6 py-10 text-white">
+        <div class="mx-auto max-w-3xl">
+            <p class="text-sm font-semibold uppercase tracking-widest text-sky-300">Beginner JavaScript lesson</p>
+            <h1 class="mt-2 text-3xl font-bold sm:text-4xl">Passing a Function as a Callback</h1>
+            <p class="mt-3 max-w-2xl leading-7 text-slate-300">
+                A function can be passed by name to another function, then called there.
+            </p>
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-3xl px-5 py-8">
+        <section class="rounded-xl bg-white p-6 shadow-sm">
+            <h2 class="text-2xl font-bold">See it in action</h2>
+            <p class="mt-3 leading-7 text-slate-700">
+                <code>executeFunction</code> receives <code>greet</code> as a callback and calls it.
+                Open the browser console to see “Hello!”.
+            </p>
+            <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100"><code>function greet() {
+    console.log("Hello!");
+}
+
+function executeFunction(callback) {
+    callback();
+}
+
+executeFunction(greet);</code></pre>
+        </section>
+    </main>
+    <script src="callback-function.js" defer></script>
+</body>
+</html>

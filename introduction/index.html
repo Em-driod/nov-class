@@ -6,6 +6,47 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <main style="font-family: Arial, sans-serif; max-width: 850px; margin: 30px auto; padding: 0 18px; color: #1f2937;">
+        <h1 style="color: #172554;">Understanding CSS z-index</h1>
+        <p style="font-size: 17px; line-height: 1.6;">
+            <strong>z-index</strong> controls which overlapping element appears in front. Think of the values
+            as layers: a larger z-index is closer to you, while a smaller one sits behind it.
+        </p>
+        <p style="line-height: 1.6;">
+            For z-index to work in this example, each shape has <code>position: absolute</code>.
+            The parent has <code>position: relative</code>, so the shapes are positioned inside the demo area.
+            All styling is written directly in each element's <code>style</code> attribute.
+        </p>
+
+        <div style="position: relative; width: 100%; max-width: 680px; height: 390px; margin: 24px auto; overflow: hidden; border: 2px dashed #94a3b8; border-radius: 12px; background: #f8fafc;">
+            <div style="position: absolute; z-index: 1; left: 4%; top: 45px; width: 145px; height: 145px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #38bdf8; color: #082f49; font-weight: bold; text-align: center;">
+                Circle<br>z-index: 1
+            </div>
+            <div style="position: absolute; z-index: 2; left: 20%; top: 95px; width: 150px; height: 150px; display: flex; align-items: center; justify-content: center; background: #4ade80; color: #14532d; font-weight: bold; text-align: center;">
+                Square<br>z-index: 2
+            </div>
+            <div style="position: absolute; z-index: 3; left: 36%; top: 60px; width: 145px; height: 145px; display: flex; align-items: center; justify-content: center; transform: rotate(45deg); background: #facc15; color: #713f12; font-weight: bold; text-align: center;">
+                <span style="transform: rotate(-45deg);">Diamond<br>z-index: 3</span>
+            </div>
+            <div style="position: absolute; z-index: 4; left: 48%; top: 165px; width: 175px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 50px; background: #fb7185; color: #881337; font-weight: bold; text-align: center;">
+                Pill<br>z-index: 4
+            </div>
+            <div style="position: absolute; z-index: 5; left: 27%; top: 210px; width: 155px; height: 145px; display: flex; align-items: center; justify-content: center; clip-path: polygon(50% 0, 100% 100%, 0 100%); background: #a78bfa; color: #2e1065; font-weight: bold; text-align: center;">
+                Triangle<br>z-index: 5
+            </div>
+        </div>
+
+        <h2 style="color: #172554;">What to notice</h2>
+        <ol style="line-height: 1.8;">
+            <li>The shapes overlap because they are absolutely positioned in the same relative parent.</li>
+            <li>The circle (z-index 1) is behind the square (2), diamond (3), pill (4), and triangle (5).</li>
+            <li>The triangle is drawn last in front because it has the highest z-index value.</li>
+            <li>Changing a value changes the stacking order. For example, set the circle to <code>z-index: 6</code> to bring it to the front.</li>
+        </ol>
+        <p style="line-height: 1.6;">
+            <strong>Remember:</strong> z-index is not a measurement in pixels. It only sets stacking order,
+            and it works within the element's stacking context.
+        </p>
+    </main>
 </body>
 </html>
