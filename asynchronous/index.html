@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Today's Weather | Async JavaScript</title>
+</head>
+<body class="min-h-screen bg-slate-950 text-white">
+    <main class="mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-5 py-12">
+        <header class="mb-8">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">A tiny async JavaScript demo</p>
+            <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Weather, right now.</h1>
+            <p class="mt-3 text-slate-400">Enter a city to see its current weather. No API key needed.</p>
+        </header>
+
+        <section class="overflow-hidden rounded-3xl bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-700 p-6 shadow-2xl shadow-blue-950/40 sm:p-10" aria-label="Current weather">
+            <div class="flex flex-wrap items-start justify-between gap-6">
+                <div>
+                    <p class="text-sm font-medium text-blue-100">CURRENT WEATHER</p>
+                    <h2 class="location mt-2 text-2xl font-semibold">Your city</h2>
+                    <p class="location-info mt-1 text-blue-100">Search for a place anywhere in the world</p>
+                </div>
+                <span class="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm text-blue-50">Live from Open-Meteo</span>
+            </div>
+
+            <form class="weather-form mt-8 flex flex-col gap-3 sm:flex-row">
+                <label class="sr-only" for="city">City name</label>
+                <input id="city" class="city min-w-0 flex-1 rounded-xl border border-white/30 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-200" type="search" placeholder="Type a city, e.g. Tokyo" required>
+                <button class="rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-white" type="submit">Get weather</button>
+            </form>
+            <p class="message mt-3 min-h-6 text-sm text-blue-100" role="status" aria-live="polite">Type a city name above to get started.</p>
+
+            <div class="mt-10 flex flex-wrap items-end gap-x-3 gap-y-1">
+                <p class="temperature text-7xl font-semibold tracking-tighter sm:text-8xl">--</p>
+                <p class="pb-2 text-3xl text-blue-100">°F</p>
+            </div>
+            <p class="mt-2 text-blue-100">Current temperature</p>
+
+            <div class="mt-10 grid gap-3 sm:grid-cols-2">
+                <div class="rounded-2xl border border-white/15 bg-white/10 p-4">
+                    <p class="text-sm text-blue-100">Humidity</p>
+                    <p class="humidity mt-1 text-2xl font-semibold">--%</p>
+                </div>
+                <div class="rounded-2xl border border-white/15 bg-white/10 p-4">
+                    <p class="text-sm text-blue-100">Wind speed</p>
+                    <p class="wind mt-1 text-2xl font-semibold">-- mph</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-6">
+            <h2 class="text-lg font-semibold">Weather object from the API</h2>
+            <p class="mt-1 text-sm text-slate-400">The values selected by the JavaScript appear here.</p>
+            <pre class="mt-4 overflow-x-auto rounded-xl bg-slate-950 p-4 text-sm text-cyan-200"><code class="api-object">Search for a city to see its weather object.</code></pre>
+        </section>
+
+        <footer class="mt-6 flex flex-wrap items-center justify-between gap-3 text-sm text-slate-400">
+            <p>JavaScript gets this data with <code class="text-slate-200">async</code> and <code class="text-slate-200">await</code>.</p>
+            <a class="underline decoration-slate-600 underline-offset-4 hover:text-white" href="https://open-meteo.com/" target="_blank" rel="noreferrer">Weather data by Open-Meteo</a>
+        </footer>
+    </main>
+    <script src="app.js" defer></script>
+</body>
+</html>
