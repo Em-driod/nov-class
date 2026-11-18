@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Task List</title>
+</head>
+<body class="min-h-screen bg-slate-950 text-white">
+    <main class="mx-auto max-w-xl px-5 py-12">
+        <h1 class="text-4xl font-bold tracking-tight">My tasks</h1>
+        <p class="task-count mt-2 text-slate-400"></p>
+
+        <form class="task-form mt-6 flex gap-3">
+            <label class="sr-only" for="task">New task</label>
+            <input id="task" class="task-input min-w-0 flex-1 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-400" type="text" placeholder="What needs to be done?" required autocomplete="off">
+            <button class="rounded-xl bg-cyan-500 px-5 py-3 font-semibold text-slate-950 hover:bg-cyan-400" type="submit">Add</button>
+        </form>
+
+        <p class="empty mt-6 rounded-2xl border border-dashed border-slate-700 p-6 text-center text-slate-400">No tasks yet. Add one above.</p>
+        <ul class="list mt-6 space-y-3"></ul>
+    </main>
+    <script src="list.js" defer></script>
+</body>
+</html>
